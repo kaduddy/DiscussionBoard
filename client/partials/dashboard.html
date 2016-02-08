@@ -1,0 +1,35 @@
+<div>
+	<a href="#/logout">Logout</a>
+	<h3>Welcome {{ dashboardCtrl.user.name }}</h3>
+	Filter <input type="text" ng-model="filter_topics">
+	<table border="black">
+		<tr>
+			<th>Category</th>
+			<th>Topic</th>
+			<th>User Name</th>
+			<th>Posts</th>
+		</tr>
+		<tr ng-repeat="q in dashboardCtrl.questions | filter: filter_topics | orderBy: 'topic'">
+			™
+			<td>{{q.category}}</td>
+			<td><a href="#/topic/{{q._id}}">{{q.topic}}</a></td>
+			<td><a href="#/users/show/{{q._user._id}}">{{q._user.name}}</a></td>
+			<td>{{q._answers.length}}</td>
+		</tr>
+	</table>
+	<form>
+		<h4>Add a new Topic</h4>
+		Topic: <input type="text" ng-model="dashboardCtrl.newQuestion.topic">
+		<br>
+		Description: <textarea ng-model="dashboardCtrl.newQuestion.description"></textarea>
+		<br>
+		Category: <select ng-model="dashboardCtrl.newQuestion.category">
+			<option>HTML</option>
+			<option>MySQL</option>
+			<option>Ruby on Rails</option>
+			<option>UX</option>
+			<option>Web Development</option>
+		</select>
+		<input type="submit" value="Submit" ng-click="dashboardCtrl.addQuestion()">
+	</form>
+</div>

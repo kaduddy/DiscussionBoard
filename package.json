@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.0",
+    "mongoose-deep-populate": "^2.0.3"
+  }
+}
